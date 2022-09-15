@@ -1,0 +1,19 @@
+datasource db {
+  // could be postgresql or mysql
+  provider = "mysql"
+  url      = "mysql://root:cksdls123@localhost:3306/slack_db"
+}
+
+generator db {
+  provider  = "prisma-client-py"
+  interface = "asyncio"
+}
+
+model Post {
+  id         String   @id @default(cuid())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  title      String
+  published  Boolean
+  desc       String?
+}
