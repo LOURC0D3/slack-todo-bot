@@ -10,8 +10,20 @@ generator db {
 }
 
 model User {
-  id         String   @id @default(cuid())
-  slack_id String @unique
+  id         Int      @id @default(autoincrement())
+  slack_id   String   @unique
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  tasks      Task[]
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  user_id     Int
+  user        User     @relation(fields: [user_id], references: [id])
+  title       String
+  description String
+  due_date    String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
 }
