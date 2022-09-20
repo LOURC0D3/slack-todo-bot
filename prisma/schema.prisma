@@ -10,20 +10,35 @@ generator db {
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
-  slack_id   String   @unique
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  tasks      Task[]
+  id           Int           @id @default(autoincrement())
+  slack_id     String        @unique
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  tasks        Task[]
+  user_setting UserSetting[]
+}
+
+model UserSetting {
+  id                Int      @id @default(autoincrement())
+  user_id           Int      @unique
+  user              User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  conversation      String?
+  public_tasks      Boolean  @default(true)
+  notification_news Boolean  @default(true)
+  send_quotes       Boolean  @default(true)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
 }
 
 model Task {
   id          Int      @id @default(autoincrement())
   user_id     Int
-  user        User     @relation(fields: [user_id], references: [id])
+  user        User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
   title       String
   description String
   due_date    String
+  is_clear    Boolean  @default(false)
+  is_personal Boolean
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
