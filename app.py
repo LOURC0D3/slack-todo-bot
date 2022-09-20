@@ -113,8 +113,7 @@ class App(AsyncApp):
                                                         "emoji": True
                                             },
                                             "style": "primary",
-                                            "value": "click_me_123",
-                                            "action_id": "button-action"
+                                            "action_id": "on_click_create_todo"
                                         }
                             },
                             {
