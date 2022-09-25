@@ -60,7 +60,7 @@ class App(AsyncApp):
                         await self.prisma.task.delete(where={'id': task.id})
                     elif task_time_stamp - now_date_stamp <= 0:
                         await self.prisma.task.delete(where={'id': task.id})
-                await publish_home_tab(user.slack_id)
+                await publish_home_tab(self.client, user.slack_id, user.slack_id)
 
     async def daily_message_sender(self):
         while True:
