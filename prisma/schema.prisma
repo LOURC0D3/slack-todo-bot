@@ -1,7 +1,7 @@
 datasource db {
   // could be postgresql or mysql
   provider = "mysql"
-  url      = "mysql://root:cksdls123@localhost:3306/slack_db"
+  url      = env("DB_URL")
 }
 
 generator db {
