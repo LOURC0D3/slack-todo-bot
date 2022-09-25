@@ -1,9 +1,5 @@
 import os
-from dotenv import load_dotenv
-
 from slack_bolt.async_app import AsyncApp
-from slack_bolt.adapter.sanic import AsyncSlackRequestHandler
-
 from prisma import Prisma
 from prisma.utils import async_run
 
@@ -18,14 +14,15 @@ import re
 
 from sanic import Sanic
 from sanic.request import Request
+from slack_bolt.adapter.sanic import AsyncSlackRequestHandler
 
 from saying import getRandomSaying
 
-load_dotenv()
 
 class App(AsyncApp):
     def __init__(self):
-        super().__init__(token=os.environ.get("SLACK_BOT_TOKEN"), signing_secret=os.environ.get("SLACK_SIGNING_SECRET"))
+        super().__init__(token="xoxb-3924779483874-4020715904659-1ABd2ayLMGlIBxC4HPJefqlD",
+                         signing_secret="6d5cbac7a0f8958c5e834d67356e8631")
         self.prisma = Prisma()
 
         self.api = Sanic(__name__)
