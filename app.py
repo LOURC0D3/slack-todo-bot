@@ -329,39 +329,40 @@ async def on_click_task_checkbox_in_home_tab(ack, body, client):
                     }
                 }])
 
-        await app.client.chat_postMessage(channel=user.slack_id, text='할 일 완료!', blocks=[
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "수고하셨습니다. <@" + user.slack_id + ">님!"
+        if user_options.send_quotes:
+            await app.client.chat_postMessage(channel=user.slack_id, text='할 일 완료!', blocks=[
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "수고하셨습니다. <@" + user.slack_id + ">님!"
+                    }
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "오늘도 고생하셨을 <@" + user.slack_id + ">님을 위해 명언을 준비 해보았습니다. 📚"
+                    }
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "> *" + getRandomSaying() + "*"
+                    }
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "제가 준비한 게 도움이 되었으면 좋겠네요. 😁\n그럼, 남은 하루 즐겁게 보내시길 바래요! 👋"
+                    }
+                },
+                {
+                    "type": "divider"
                 }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "오늘도 고생하셨을 <@" + user.slack_id + ">님을 위해 명언을 준비 해보았습니다. 📚"
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "> *" + getRandomSaying() + "*"
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "제가 준비한 게 도움이 되었으면 좋겠네요. 😁\n그럼, 남은 하루 즐겁게 보내시길 바래요! 👋"
-                }
-            },
-            {
-                "type": "divider"
-            }
-        ])
+            ])
 
     await publish_home_tab(client, body["user"]["id"], body["user"]["id"], page)
 
@@ -512,7 +513,7 @@ async def open_setting_home_tab(client, user_id):
             },
             "description": {
                 "type": "plain_text",
-                "text": "작업을 완료하면 메세지를 받거나 받습니다."
+                "text": "작업을 완료하면 메세지를 받습니다."
             },
             "value": "set-send-quotes"
         })
