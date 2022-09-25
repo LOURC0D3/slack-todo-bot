@@ -552,7 +552,7 @@ async def open_setting_home_tab(client, user_id):
                     },
                     "description": {
                         "type": "plain_text",
-                        "text": "작업을 완료하면 메세지를 받거나 받습니다."
+                        "text": "작업을 완료하면 메세지를 받습니다."
                     },
                     "value": "set-send-quotes"
                 }
@@ -591,7 +591,7 @@ async def open_setting_home_tab(client, user_id):
                     },
                     "description": {
                         "type": "plain_text",
-                        "text": "작업을 완료하면 메세지를 받거나 받습니다."
+                        "text": "작업을 완료하면 메세지를 받습니다."
                     },
                     "value": "set-send-quotes"
                 }
