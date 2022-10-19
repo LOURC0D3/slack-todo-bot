@@ -13,5 +13,5 @@ python3 run.py
 ```
 <br>
 you need to set your bot's permission in slack
-<br>
+<br><br>
 This repository is no longer being updated.
