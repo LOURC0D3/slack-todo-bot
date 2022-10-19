@@ -5,7 +5,7 @@
 pip3 install -r requirements.txt
 ```
 
-2. write your env
+2. edit .env file
 
 3. run server
 ``` sh
