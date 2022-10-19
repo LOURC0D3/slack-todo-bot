@@ -2,7 +2,7 @@
 
 1. install requirements
 ``` sh
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 
 2. write your env
