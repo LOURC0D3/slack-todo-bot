@@ -12,3 +12,6 @@ pip3 install -r requirements.txt
 python3 run.py
 ```
 
+you need to set your bot's permission in slack
+
+
