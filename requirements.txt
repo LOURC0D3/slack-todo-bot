@@ -27,7 +27,7 @@ MarkupSafe==2.1.1
 multidict==6.0.2
 packaging==21.3
 peewee==3.15.2
-pipreqs==0.4.11
+pipreqs==0.4.12
 prisma==0.6.6
 pycodestyle==2.9.1
 pydantic==1.10.2
